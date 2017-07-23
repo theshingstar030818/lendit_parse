@@ -1,0 +1,88 @@
+page-personal-info {
+    ion-title {
+        //position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+    }
+    .toolbar-title{
+        font-size: 16px !important;
+        font-weight: 300 !important;
+        padding: 0px !important;
+    }   
+    [blueHeaders]{
+        color: #2979ff;
+        text-align: left;
+    }
+
+    [paddingTop]{
+        padding-top: 8%;
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+
+    [paddingBottom]{
+        padding-top: 3%;
+        padding-left: 5%;
+        padding-right: 5%;
+        padding-bottom: 20%;
+    }
+    [input]{
+        font-size: 12px;
+        align-content: center;
+        text-align: center !important;
+        color: #000000 !important;
+        font-weight: 400;
+        opacity: 0.9 !important;
+    }    
+    [paddingAll]{
+        padding-right: 5%;
+    }
+    .input{
+        padding-left: 0% !important;
+    }
+
+    [buttonStyle]{
+        margin-top: 8%;
+        background-color:#2979ff; 
+    }
+    .item{
+        padding-right: 0px !important;
+        padding-left: 0px !important;
+
+    }
+    .col{
+        padding: 0px !important;
+    }
+    [col-4]{
+        padding: 0px !important;
+    }
+
+    [paddingCol]{
+        padding-left: 3% !important;
+    }
+
+    [paddingAdd]{
+        padding-top: 3% !important;
+    }
+    .alert-message {
+        margin: 20px 0;
+        padding: 20px;
+        border-left: 3px solid #bce8f1;
+        overflow-y: hidden;
+    }
+
+    .alert-message-info {
+        margin-left: 10px;
+        margin-right: 10px; 
+        background-color: #d9edf7;
+        border-color: #5bc0de;
+    }
+
+    .alert-message-info p {
+        color: #3a87ad;
+    } 
+}
+

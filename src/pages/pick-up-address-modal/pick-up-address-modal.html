@@ -1,0 +1,41 @@
+
+<ion-content modalStyling>
+  <ion-icon closeButton  name="md-close-circle"  (click)="closeModal()"></ion-icon>
+  <h1 titleStyle >Pick Up Address </h1>
+    <div paddingTop>
+      <ion-label blueHeaders>Pickup Address</ion-label>
+    </div>
+    <div paddingAll>
+      <ion-item no-lines>
+        <ion-checkbox checkboxMargin checked="false" [(ngModel)]="defaultAddress"></ion-checkbox>
+        <ion-label>Default Pick Up Address</ion-label>
+      </ion-item>
+    </div>
+    <div paddingAll>
+      <ion-item>
+        <ion-input inputStyle type="text" placeholder="Pick Up Address" [(ngModel)]="address" required></ion-input>
+      </ion-item>
+    </div>
+    <div paddingAll>
+      <ion-row>
+        <ion-col col-4>
+          <ion-item >
+            <ion-input inputStyle type="text" placeholder="City" [(ngModel)]="city" required></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col col-4 paddingCol>
+          <ion-item >
+            <ion-input inputStyle type="text" placeholder="State" [(ngModel)]="state" required></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col col-4 paddingCol>
+          <ion-item >
+            <ion-input inputStyle type="text" placeholder="Zip" [(ngModel)]="zip" required></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </div>
+  <div paddingBottom>
+    <button ion-button block full buttonStyle (click)="closeModal()">Next</button>
+  </div>
+</ion-content>

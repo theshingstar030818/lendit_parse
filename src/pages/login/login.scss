@@ -1,0 +1,122 @@
+page-login {
+  
+    [paddingLogo] {
+        padding-top: 15%;
+        text-align: center;
+        align-content: center;
+    }
+
+    [paddingSubLogo] {
+        text-align: center;
+        color: #ffffff;
+    }
+    [labelSize]{
+        font-size: 1.5rem !important;
+        font-weight: 550 !important;
+    }
+    [itemStyle]{
+        font-size: 1.5rem !important; 
+        border: 2px solid !important;
+        border-color: #e0e0e0 !important;
+        border-width: 2px !important;
+        border-radius: 30px !important;
+        background: transparent;
+        height: 10px !important;
+        color: #ffffff;
+    }
+
+    [paddingEmail] {
+        padding-top: 20%;
+        text-align: center;
+        align-content: center;
+        padding-left: 10%;
+        padding-right: 10%;
+    }
+
+    [paddingAll] {
+        padding-top: 2%;
+        text-align: center;
+        align-content: center;
+        padding-left: 10%;
+        padding-right: 10%;
+    }
+    [paddingLabel] {
+        padding-top: 2%;
+        text-align: center;
+        align-content: center;
+        padding-left: 15%;
+        padding-right: 15%;
+    }    
+
+    [paddingLoginButton] {
+        padding-top: 8%;
+        text-align: center;
+        align-content: center;
+        padding-left: 20%;
+        padding-right: 20%;
+    }
+
+    [paddingSignUpButton] {
+        padding-top: 5%;
+        text-align: center;
+        align-content: center;
+        padding-left: 10%;
+        padding-right: 10%;
+    }
+
+    [paddingLoginButtonStyle] {
+        text-align: center;
+        align-content: center;
+        color: #ffffff;
+        border-color: #ffffff;
+    }
+    [paddingLogin] {
+        padding-left: 15%;
+        padding-right: 15%;
+    }
+    [paddingForgotButton] {
+        margin-top: -4%;
+        text-align: center;
+        align-content: center;
+        padding-left: 10%;
+        padding-right: 10%;
+    }
+    ion-icon{
+        font-size: 1.5rem !important;
+    }
+    .button{
+        text-align: center;
+        font-size: 1.5rem !important;
+        font-weight: 500 !important;
+    }
+
+    .text-input::-moz-placeholder {
+        color: #ffffff !important;
+    }
+
+    .text-input:-ms-input-placeholder {
+        color: #ffffff !important;
+    }
+
+    .text-input::-webkit-input-placeholder {
+        color: #ffffff !important;
+    }
+
+    [bgImage]{
+        background-image: url("../assets/img/bg_image.png");
+        background-repeat:no-repeat;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        background-size: cover;
+    }
+    
+    [itemCheckbox] {
+        color:#ffffff;
+        background: transparent;
+        border-bottom: none;
+    }
+
+    [alertWhite] {
+        color:#ffffff
+    }
+}

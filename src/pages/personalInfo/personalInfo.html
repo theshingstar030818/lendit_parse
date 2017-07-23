@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar color ="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title mode="ios">Settings</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+    <div paddingTop>
+      <ion-label blueHeaders>Pickup Address</ion-label>
+    </div>
+    <div flexContainer [hidden]="pickUpAddress.length <= 0">
+      <ion-item no-lines itemOverride>
+        <!--<ion-checkbox  [(ngModel)]="pickUpAddressIdCheck"></ion-checkbox>-->
+        <ion-input input type="text" [(ngModel)]="pickUpAddressList" disabled="true"></ion-input>
+        <!--<ion-label>{{pickUpAddressList}}</ion-label>-->
+      </ion-item>
+    </div>
+    <div flexContainer [hidden]="pickUpAddress.length > 0">
+      <div class="alert-message alert-message-info">
+        <p>
+          No Address found. Please Add New Address.
+        </p>
+      </div>
+    </div>
+    <!--<div flexContainer>
+        <div class="alert-message alert-message-info">
+          <p>
+            All addresses are being added to the database.
+            We need to have a design to show them as list here.
+          </p>
+        </div>
+    </div>    -->
+    <div paddingAll paddingAdd>
+      <button ion-button clear icon-left (click)="openAddAddressModal()">
+      <ion-icon name="add-circle"></ion-icon> <p style="color:#000000">Add Another Pickup Address</p></button>
+    </div>
+    <!--<div paddingBottom>
+      <button ion-button block full buttonStyle (click)="savePersonalInfo()">  Save</button>
+    </div>-->
+</ion-content>

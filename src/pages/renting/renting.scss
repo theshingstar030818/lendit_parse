@@ -1,0 +1,48 @@
+page-renting {
+    ion-title {
+        //position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+    }
+    .toolbar-title{
+        font-size: 16px !important;
+        font-weight: 300 !important;
+        padding: 0px !important;
+    }
+    .segment-button{
+        opacity: 1.0 !important;
+        color: #000000 !important;
+        font-size: 1rem !important;
+        text-transform: initial !important
+    }
+    .segment-button.segment-activated{
+        color:#2979ff !important
+    }
+    [flexContainer] {
+        display:flex;
+        flex-direction:row;
+        font-size: 14px;
+    }
+    [paddingTop]{
+        padding-top: 5%;
+    }
+    hr{
+        height: 1px !important;
+        background-color: #000000 !important;
+    }
+    [paddingAll]{
+        padding-right: 5%;
+        padding-left: 5%;
+    }
+    [textStyleOverall]{
+        font-weight: 600;
+        font-size: 14px;
+        color: #2979ff !important;
+    }
+    [bgColor]{
+        background-color: #f9f9f9;
+    } 
+}

@@ -1,0 +1,130 @@
+page-special-instructions {
+    ion-title {
+        //position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+    }
+    .toolbar-title{
+        font-size: 16px !important;
+        font-weight: 300 !important;
+        padding: 0px !important;
+    }
+    .label{
+        font-family: 'Avenir';
+        font-size: 12px;
+    }
+    [checkboxMargin]{
+        margin: 3% !important;
+    }
+    [radioMargin]{
+        margin: 10% !important;
+    }
+    [marginLeftside]{
+        margin-left: -4% !important;
+    }
+    [blueHeaders]{
+        color: #2979ff;
+        text-align: left;
+        font-size: 12px;
+        font-weight: 600;
+        margin: 0 !important;
+    }
+    [textButton]{
+        margin-top: -1.5rem !important;
+    }
+    [paddingTop]{
+        padding: 5%;
+    }
+    [paddingRadio]{
+        padding-right: 5%;
+    }
+    .item-cover{
+        width: 10%;
+    }
+    [paddingAll]{
+        padding-left: 5%;
+        padding-right: 5%;
+        padding-top: 2%;
+    }
+    [paddingButtons]{
+        padding-right: 5%;
+    }
+    [marginTextArea]{
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+    [flexContainer] {
+        display:flex;
+        flex-direction:row;
+        font-size: 14px;
+    }
+    [paddingRight]{
+        margin-right: 2%;
+    }
+
+    [paddingBottom]{
+        padding-top: 3%;
+        padding-left: 5%;
+        padding-right: 5%;
+        padding-bottom: 20%;
+    }
+    [buttonStyle]{
+        background-color:#2979ff; 
+    }
+    [itemOverride]{
+        font-size: 1.5rem !important; 
+        border: none !important;
+        background-color: transparent;
+    }
+    .col{
+        padding: 0px !important;
+    }
+    [col-4]{
+        padding: 0px !important;
+    }
+    .checkbox{
+        padding: 0px !important;
+    }
+    .radio{
+        padding: 0px !important;
+    }
+    [itemStyle]{
+        font-size: 1.5rem !important;
+        border-color: #e0e0e0 !important;
+        border-radius: 15px !important;
+        background: transparent;
+    }
+    [textAreaStyle]{
+        font-size: 1.5rem !important;
+        border: solid !important;
+        border-width: 2px !important;
+        border-color: lightgray !important;
+        background-color: #ffffff;
+        height: 65px;
+    }
+    [bgColor]{
+        background-color: #f9f9f9;
+    }    
+    [inputStyle] {
+        font-size: 15px;
+    }
+    [flexItem] {
+        flex:1 1 auto;
+    }
+    [labelFlexContainer] {
+        display:flex;
+        flex-direction:row;
+    }
+    [labelFlexItem] {
+        flex:1 1 auto;
+    }
+
+    [textStyleOverall]{
+        font-weight: 600;
+        font-size: 12px;
+        color: #000000 !important;
+    }
+}

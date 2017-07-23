@@ -1,0 +1,75 @@
+<ion-header>
+  <ion-toolbar color ="primary">
+    <ion-title>LENDIT</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content bgColor>
+    <div paddingTop>
+        <ion-label headingStyle>Profile Info</ion-label>
+    </div>
+    <div paddingTop paddingAll>
+      <ion-label paddingTopLabel blueHeaders>Mobile Phone</ion-label>
+    </div>
+    <form [formGroup]="numberForm">
+      <div paddingAll>
+        <ion-input type="text" formControlName="mobileNumber" placeholder="xxx-xxx-xxxx" maxlength="10" minlength="10"></ion-input>
+        <div class="no-border" *ngIf="!numberForm.controls.mobileNumber.valid  && (numberForm.controls.mobileNumber.dirty) || numberForm.controls.mobileNumber.hasError('maxlength') && numberForm.controls.mobileNumber.hasError('minlength') ">
+          <p alertStyle>Invalid Phone Number. Please add 10 digits number.</p>
+        </div>
+     </div>
+    </form>
+    <div paddingAll>
+      <div flexContainer buttonGap  *ngIf="myPhoto == '' ">
+        <button ion-button clear icon-left (click)="openActionSheet()">
+        <ion-icon name="camera"></ion-icon><p pStyle>Add Profile Picture</p></button>
+      </div>
+        <div *ngIf="myPhoto != '' ">
+          <ion-item item-avatar no-lines itemNoBorder>
+              <ion-avatar>
+                  <img avatarSize [src]="myPhoto">
+              </ion-avatar>
+          </ion-item>
+      </div>
+    </div>
+    <div paddingAll>
+      <ion-label blueHeaders>Preferred Contact Method</ion-label>
+    </div>
+    <div radio-group [(ngModel)]="contactMethod">
+      <div flexContainer>
+        <ion-col col-4>
+          <ion-item no-lines itemOveride mode="md">
+            <ion-label textStyleOverall mode="md">Text</ion-label>
+            <ion-radio mode="md" radioMargin item-left value="text" checked="true"></ion-radio>
+            <!--<ion-checkbox checkboxMargin checked="false" (click)="updateText()" [(ngModel)]="text"></ion-checkbox> -->
+          </ion-item>
+        </ion-col>
+        <ion-col col-4 paddingCol>
+          <ion-item no-lines itemOveride mode="md">
+            <ion-label textStyleOverall mode="md">Email</ion-label>
+            <ion-radio mode="md" radioMargin item-left value="email" checked="true"></ion-radio>
+            <!--<ion-checkbox checkboxMargin checked="false" (click)="updateEmail()" [(ngModel)]="email"></ion-checkbox> -->
+          </ion-item>
+        </ion-col>
+        <ion-col col-4 paddingCol>
+          <ion-item no-lines itemOveride mode="md">
+            <ion-label textStyleOverall mode="md">Call</ion-label>
+            <ion-radio mode="md" radioMargin item-left value="call" checked="true"></ion-radio>
+            <!--<ion-checkbox checkboxMargin checked="false" (click)="updateCall()" [(ngModel)]="call"></ion-checkbox> -->
+          </ion-item>
+        </ion-col>
+      </div>
+    </div>
+    <div flexContainer paddingAll>
+        <ion-label blueHeaders>Terms and Conditions</ion-label>
+    </div>
+    <!---Terms and conditons checkbox-->
+    <div flexContainer>
+      <ion-item text-wrap checkboxGap block color="accent" itemOveride no-lines>
+        <ion-checkbox customCheckbox name="agree" [(ngModel)]="userAgree" checked="true" required></ion-checkbox>
+          <ion-label textStyleOverall>I agree to LendIts  <a (click)="openTerms('http://lendit.io/terms.html')">Terms and Conditions</a></ion-label>
+      </ion-item>
+    </div>
+    <div paddingAll>
+      <button ion-button block full buttonStyle (click)="nextPage()" [disabled]="!numberForm.valid">Next</button>
+    </div>
+</ion-content>

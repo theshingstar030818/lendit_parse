@@ -1,0 +1,216 @@
+<ion-header>
+  <ion-toolbar color ="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title mode="ios">{{pageTitle}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  
+  <ion-list>
+    <ion-item (click)="flagPost()" no-lines>
+      <button ion-button clear item-end icon-left>
+        <ion-icon name="md-flag"></ion-icon>
+        Flag Post
+      </button>
+    </ion-item>
+    <h2>{{itemRequest.item.name}}</h2>
+
+    <ion-grid>
+      <ion-row>
+        <ion-col col-9 push-3>
+          <div>
+            <rating item-end icon-left
+                    [(ngModel)]="itemRequest.item.rating" 
+                    readOnly="true" 
+                    max="5" 
+                    emptyStarIconName="star-outline" 
+                    halfStarIconName="star-half" 
+                    starIconName="star"
+                    nullable="false" 
+                    (ngModelChange)="onRatingModelChange($event)"> 
+            </rating>
+          </div>
+        </ion-col>
+        <ion-col col-3 pull-9>
+          <ion-label item-start color="primary" >Item Rating</ion-label>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <ion-item no-lines>
+      <h2>Rate</h2>
+      <ion-grid>
+        <ion-row>
+          <ion-col col-3 text-center>Hourly: ${{itemRequest.itemRate?.hourly}}</ion-col>
+          <ion-col col-3 text-center>Daily: ${{itemRequest.itemRate?.daily}}</ion-col>
+          <ion-col col-3 text-center>Weekly: ${{itemRequest.itemRate?.weekly}}</ion-col>
+        </ion-row>
+      </ion-grid>    
+    </ion-item>
+
+    <ion-item no-lines>
+      <button ion-button icon-only item-start clear icon-left color="primary" [disabled]="sliderOptions.backButtonDisabled" (click)="goToSlide(-1)">
+        <ion-icon name="ios-arrow-back"></ion-icon>
+      </button>
+      <ion-slides (ionSlideDidChange)="slideChanged()">
+        <div *ngFor="let image of itemRequest.item.images; let i=index">
+          <ion-slide *ngIf="i%3==0">
+            <ion-row >
+              <ion-col>
+                <div>
+                  <div class="list-items">
+                    <div class="item-menu" (click)="viewImage(itemRequest.item.images[i])">
+                        <img *ngIf="itemRequest.item.images[i]" src="{{itemRequest.item.images[i]}}"/>
+                    </div>
+                  </div>
+                </div>
+                </ion-col>
+
+              <ion-col >
+                <div>
+                  <div class="list-items">
+                    <div class="item-menu" (click)="viewImage(itemRequest.item.images[i+1])">
+                      <img *ngIf="itemRequest.item.images[i+1]" src="{{itemRequest.item.images[i+1]}}"/>
+                    </div>
+                  </div>
+                </div>
+              </ion-col>
+
+              <ion-col >
+                <div>
+                  <div class="list-items">
+                    <div class="item-menu" (click)="viewImage(itemRequest.item.images[i+2])">
+                      <img *ngIf="itemRequest.item.images[i+2]" src="{{itemRequest.item.images[i+2]}}"/>
+                    </div>
+                  </div>
+                </div>
+              </ion-col>
+            
+            </ion-row>
+
+          </ion-slide>
+        </div>
+      </ion-slides>
+      <button ion-button icon-only item-end clear icon-right color="primary" [disabled]="sliderOptions.nextButtonDisabled" (click)="goToSlide(1)">
+        <ion-icon name="ios-arrow-forward"></ion-icon>
+      </button>
+    </ion-item>
+    <ion-item no-lines>
+      <h2>Item Description</h2>
+    </ion-item>
+
+    <ion-item no-lines>
+      <ion-textarea disabled [(ngModel)]="itemRequest.item.description" name="itemRequest.description"></ion-textarea>
+    </ion-item>
+    
+    <ion-grid no-lines radio-group [(ngModel)]="itemRequest.itemRentByRadioSelection">
+      <ion-row>
+        <ion-col>
+          <ion-item no-lines>
+            <ion-label >Hour</ion-label>
+            <ion-radio value="Hourly"></ion-radio>
+          </ion-item>
+        </ion-col>
+        <ion-col>
+          <ion-item no-lines>
+            <ion-label>Day</ion-label>
+            <ion-radio value="Daily"></ion-radio>
+          </ion-item>
+        </ion-col>
+        <ion-col>
+          <ion-item no-lines>
+            <ion-label>Week</ion-label>
+            <ion-radio value="Weekly"></ion-radio>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <ion-grid>
+      <ion-row (click)="openCalendar(true)" *ngIf="itemRequest.itemRentByRadioSelection=='Hourly'; else hasEndDate;">
+        <ion-col>
+          <ion-item no-lines>
+            <ion-label color="primary">Select Date</ion-label>
+          </ion-item> 
+        </ion-col>
+        <ion-col>
+          <button ion-button round outline>
+            <ion-datetime disabled displayFormat="MM/DD/YYYY" [(ngModel)]="itemRequest.selectDateStartDate"></ion-datetime>
+          </button>
+        </ion-col>
+      </ion-row>
+      <ng-template #hasEndDate>
+        <ion-row (click)="openCalendar(false)" >
+          <ion-col>
+            <ion-item no-lines>
+              <ion-label color="primary">Select Date</ion-label>
+            </ion-item> 
+          </ion-col>
+          <ion-col>
+            <button ion-button round outline>
+              <ion-datetime disabled displayFormat="MM/DD/YYYY" [(ngModel)]="itemRequest.selectDateStartDate"></ion-datetime>
+            </button>
+          </ion-col>
+          <ion-col>
+            <button ion-button round outline>
+              <ion-datetime disabled displayFormat="MM/DD/YYYY" [(ngModel)]="itemRequest.selectDateEndDate"  ></ion-datetime>
+            </button>
+          </ion-col>
+        </ion-row>
+      </ng-template>
+        
+    </ion-grid>
+
+    <ion-grid>
+      <ion-row>
+        <ion-col col-9 push-3>
+          <div color="primary">
+            <button ion-button color="dark" clear (click)="viewItemLocation()" >
+              <ion-icon name="ios-pin" color="primary" > </ion-icon> &nbsp; {{itemRequest.item.location.stringValue}}</button>
+          </div>
+        </ion-col>
+        <ion-col col-3 pull-9>
+          <ion-label item-start text-wrap color="primary" >Item Location:</ion-label>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <ion-grid>
+      <ion-row>
+        <ion-col col-9 push-3>
+          <div>
+            <button ion-button text-wrap color="dark" [disabled]="itemRequest.itemRentByRadioSelection!='Hourly'" (click)="requestHoursPopUp()" clear><u>Request Hours</u></button>
+          </div>
+        </ion-col>
+        <ion-col col-3 pull-9>
+          <ion-label item-start text-wrap color="primary" >Request Hours:</ion-label>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <ion-list>
+      <ion-item>
+        <ion-avatar item-start>
+          <img src="assets/img/avatarProfilePictureDefault.png">
+        </ion-avatar>
+        <h2>{{itemRequest.item.lender.name}}</h2>
+        <p><rating icon-left
+                [(ngModel)]="itemRequest.item.lender.rating" 
+                readOnly="true" 
+                max="5" 
+                emptyStarIconName="star-outline" 
+                halfStarIconName="star-half" 
+                starIconName="star"
+                nullable="false" 
+                (ngModelChange)="onRatingModelChange($event)"> 
+        </rating></p>
+      </ion-item>
+    </ion-list>
+
+    <button ion-button block (click)="requestRent()">Request Rent</button>
+
+  </ion-list>
+</ion-content>

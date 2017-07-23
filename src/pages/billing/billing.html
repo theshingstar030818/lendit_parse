@@ -1,0 +1,97 @@
+<ion-header>
+  <ion-toolbar color ="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Settings</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+    <div paddingTop>
+      <ion-label blueHeaders>Billing Information</ion-label>
+    </div>
+    <div paddingAll>
+      <ion-item no-lines>
+        <ion-checkbox checkboxMargin checked="false" [(ngModel)]="sameAsUser" (click)="updateName()"></ion-checkbox>
+        <ion-label>Same as User Info</ion-label>
+      </ion-item>
+    </div>
+    <div paddingAll>
+      <ion-item>
+        <ion-input type="text" placeholder="Billing First Name" [(ngModel)]="firstName" required></ion-input>
+      </ion-item>
+    </div>
+    <div paddingAll>
+      <ion-item>
+        <ion-input type="text" placeholder="Billing Last Name" [(ngModel)]="lastName" required></ion-input>
+      </ion-item>
+    </div>
+    <div paddingTop>
+      <ion-label blueHeaders>Billing Address</ion-label>
+    </div>
+    <div paddingAll>
+      <ion-item no-lines>
+        <ion-checkbox checkboxMargin checked="false" [(ngModel)]="sameAsPickUp" (click)="updateAddress()"></ion-checkbox>
+        <ion-label>Same as Pick Up Address</ion-label>
+      </ion-item>
+    </div>
+    <div paddingAll>
+      <ion-item>
+        <ion-input type="text" placeholder="Billing Address" [(ngModel)]="billingAddress" required></ion-input>
+      </ion-item>
+    </div>
+    <div paddingAll>
+      <ion-row>
+        <ion-col col-4>
+          <ion-item >
+            <ion-input type="text" placeholder="City" [(ngModel)]="billingCity" required></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col col-4 paddingCol>
+          <ion-item >
+            <ion-input type="text" placeholder="State" [(ngModel)]="billingState" required></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col col-4 paddingCol>
+          <ion-item >
+            <ion-input type="text" placeholder="Zip" [(ngModel)]="billingZip" required></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </div>
+        <div paddingTop>
+      <ion-label blueHeaders>Credit Card Info</ion-label>
+    </div>
+    <form [formGroup]="billingForm">
+      <div paddingAll>
+        <ion-item>
+          <ion-input type="text" formControlName="ccNumber" placeholder="xxxx-xxxx-xxxx-xxxx" maxlength="16" minlength="16"></ion-input>
+        </ion-item>
+      </div>
+        <div class="no-border" *ngIf="!billingForm.controls.ccNumber.valid  && (billingForm.controls.ccNumber.dirty) || billingForm.controls.ccNumber.hasError('maxlength') && billingForm.controls.ccNumber.hasError('minlength') ">
+            <p paddingAll alertStyle>Invalid Credit Card Number. Please add 16 digits number.</p>
+        </div>
+      </form>
+    <div paddingAll>
+      <ion-row>
+        <ion-col>
+          <ion-item >
+            <ion-datetime displayFormat="MM/YY" pickerFormat="MM YYYY" placeholder="Exp Date" min="2017" max="2025" [(ngModel)]="ccExp"></ion-datetime>
+          </ion-item>
+        </ion-col>
+        <ion-col paddingCol>
+          <form [formGroup]="cvvForm">
+            <ion-item >
+              <ion-input type="text" placeholder="CVV Code" formControlName="ccCvv" maxlength="4" minlength="3"></ion-input>
+            </ion-item>
+            <div class="no-border" *ngIf="!cvvForm.controls.ccCvv.valid  && (cvvForm.controls.ccCvv.dirty) || cvvForm.controls.ccCvv.hasError('maxlength') && cvvForm.controls.ccCvv.hasError('minlength') ">
+              <p alertStyle>CVV Code should be 3 to 4 digits number.</p>
+            </div>
+          </form>
+        </ion-col>
+      </ion-row>
+    </div>
+    <div paddingBottom>
+      <button ion-button block full buttonStyle [disabled]="!cvvForm.valid || !billingForm.valid" (click)="saveBillingInfo()">  Save</button>
+    </div>
+</ion-content>

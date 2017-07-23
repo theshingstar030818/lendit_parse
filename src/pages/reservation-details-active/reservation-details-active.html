@@ -1,0 +1,99 @@
+<ion-header>
+  <ion-toolbar color ="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title mode="ios">{{pageTitle}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content padding>
+    <ion-list>      
+      <ion-item no-padding>
+        <div flexContainer>
+          <ion-col>
+            <ion-item item-avatar no-lines right>
+              <ion-avatar right>
+                  <img right avatarSize src="assets/img/avatarProfilePictureDefault.png">
+              </ion-avatar>
+            </ion-item>
+          </ion-col >
+          <ion-col>
+            <div>Customer Name:</div>
+            <div>Sara Jones</div>
+            <div>4.5  <ion-icon name="ios-star"></ion-icon></div>
+            <ion-item center no-lines no-padding>
+              <div no-lines center no-padding>
+                <button center ion-button outline> <ion-icon name="ios-chatbubbles"></ion-icon> &nbsp; Message Sara</button>
+              </div>
+            </ion-item>
+          </ion-col>
+        </div>
+      </ion-item>
+      
+      <ion-item no-lines no-padding>
+        <div left>Item Name </div>
+        <p right>{{item?.name}}</p>
+      </ion-item>
+
+      <ion-item no-padding >
+        <div item-start><p>Rental Date(s)</p></div>
+        <ion-grid item-end>
+          <ion-row>
+            <ion-col no-padding>
+              <div>
+                <ion-item no-lines no-padding>
+                  <ion-label no-lines no-padding>From</ion-label>
+                  <ion-datetime disabled no-opacity no-padding displayFormat="MM/DD/YYYY" [(ngModel)]="selectDateStartDate"></ion-datetime>
+                </ion-item>
+                <div *ngIf="selectDateStartTime">
+                  <br>
+                  <ion-item no-lines no-padding>
+                    <ion-datetime disabled no-opacity no-padding displayFormat="h:mm A" [(ngModel)]="selectDateStartTime"></ion-datetime>
+                  </ion-item>
+                </div>
+              </div>
+            </ion-col>
+            <ion-col no-padding>
+              <div>
+                <ion-item no-lines no-padding>
+                  <ion-label no-lines no-padding>To</ion-label>
+                  <ion-datetime disabled no-opacity no-padding displayFormat="MM/DD/YYYY" [(ngModel)]="selectDateEndDate"></ion-datetime>
+                </ion-item>
+                <div *ngIf="selectDateStartTime">
+                  <br>
+                  <ion-item no-lines no-padding>
+                    <ion-datetime disabled no-opacity no-padding displayFormat="h:mm A" [(ngModel)]="selectDateEndTime"></ion-datetime>
+                  </ion-item>
+                </div>
+              </div>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-item>
+      
+      <ion-item no-lines no-padding>
+        <div left>{{item?.rentByRadioSelection}} </div>
+        <p right>${{item?.rate[item?.rentByRadioSelection]}}</p>
+      </ion-item>
+      
+      <ion-item no-padding no-lines>
+        <p left blueHeaders>Total Rental Cost</p> 
+        <p right>${{item?.rate[item?.rentByRadioSelection]}}</p>
+      </ion-item>
+
+      <ion-item center no-lines no-padding>
+        <ion-label no-lines center no-padding>
+          <button center ion-button outline> Start Rental Early</button>
+        </ion-label>
+      </ion-item>
+      
+      <ion-item center no-lines no-padding>
+        <ion-label no-lines center no-padding>
+          <button center ion-button>End Rental</button>
+        </ion-label>
+      </ion-item>
+    
+    </ion-list>
+</ion-content>

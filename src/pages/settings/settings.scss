@@ -1,0 +1,29 @@
+page-settings {
+    .tabbar{
+        background: #ffffff !important;
+        background-image: "" !important;
+        border-bottom: 0px !important;
+        border-top: 0px !important;
+    }
+
+    .tabs{
+        background-image: "" !important;
+        border-bottom: 0px !important;
+        border-top: 0px !important;
+    }
+
+  .tab-button[aria-selected=false] {
+    .tab-button-text {
+      color: 'primary' !important;
+    }
+  }
+
+  .tab-button[aria-selected=true] {
+    border-bottom: 3px solid !important;
+    color: 'primary';
+
+    .tab-button-text {
+      color: 'primary' !important;
+    }
+  }
+}

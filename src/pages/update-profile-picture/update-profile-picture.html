@@ -1,0 +1,30 @@
+
+<ion-header>
+  <ion-toolbar color ="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Update Profile Picture</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div paddingTop>
+    <ion-label blueHeaders>Profile Picture Update</ion-label>
+  </div>
+  <ion-row responsive-md>
+    <div buttonGap>
+      <button ion-button clear icon-left (click)="openActionSheet()">
+      <ion-icon name="camera"></ion-icon> <p style="color:#000000">Update Profile picture</p></button>
+      <div *ngIf="myPhoto != '' ">
+      <ion-item itemNoBorder no-lines>
+        <ion-thumbnail>
+          <img [src]="myPhoto">
+          </ion-thumbnail>
+        </ion-item>
+      </div>
+    </div>
+  </ion-row>
+  <div paddingBottom>
+    <button ion-button block full (click)="updateProfilePicture()">Save</button>
+  </div>
+</ion-content>

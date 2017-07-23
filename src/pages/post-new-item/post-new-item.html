@@ -1,0 +1,113 @@
+<ion-header>
+  <ion-toolbar color ="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Post New Item</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content bgColor>
+  <div paddingTop>
+    <ion-label blueHeaders>Item Info</ion-label>
+  </div>
+  <div flexContainer paddingAll>
+    <ion-col col-6 paddingRight>
+      <ion-input inputStyle type="text" placeholder="Item Name" [(ngModel)]="itemName" required></ion-input>
+    </ion-col>
+    <ion-col col-6>
+        <ion-select placeholder="Item Category" interface="popover" [(ngModel)]="itemCategory">
+          <ion-option value="Sports & Outdoors">Sports & Outdoors</ion-option>
+          <ion-option value="Tools & Garden">Tools & Garden</ion-option>
+          <ion-option value="Home">Home</ion-option>
+          <ion-option value="Electronics & Media">Electronics & Media</ion-option>
+          <ion-option value="Party Equipment">Party Equipment</ion-option>
+          <ion-option value="Other">Other</ion-option>
+        </ion-select>
+    </ion-col>
+  </div>
+  <div paddingAll>
+    <ion-label blueHeaders>Item Description</ion-label>
+  </div>
+  <div textAreaStyle marginTextArea>
+    <ion-textarea inputStyle [(ngModel)]="itemDescription" required>
+    </ion-textarea>
+  </div>
+  <div flexContainer paddingAll>
+    <ion-col col-5>
+      <ion-label blueLabel>Item Serial Number</ion-label>
+    </ion-col>
+    <ion-col>
+      <ion-input inputStyle type="text" [(ngModel)]="itemSerialNumber"></ion-input>
+    </ion-col>
+  </div>
+  <div flexContainer [hidden]="imagePath.length > 0">
+    <button ion-button clear icon-left (click)="openActionSheet()">
+    <ion-icon name="camera"></ion-icon> <p textButton>Add Item Picture</p></button>
+  </div>
+
+  <div flexContainer paddingImage [hidden]="imagePath.length <= 0">
+    <div *ngFor="let image of imagePath, let i = index">
+      <ion-col >
+        <ion-thumbnail marginRightImage *ngIf="i==0">
+          <img src="{{image}}" alt="" width="90px" height="90px">
+        </ion-thumbnail>
+        <ion-thumbnail marginRightImage *ngIf="i==1">
+          <img src="{{image}}" alt="" width="90px" height="90px">
+        </ion-thumbnail>
+        <ion-thumbnail *ngIf="i==2">
+          <img src="{{image}}" alt="" width="90px" height="90px">
+        </ion-thumbnail>
+      </ion-col>
+    </div>
+  </div>
+  <div flexContainer paddingImage [hidden]="imagePath.length <= 2">
+    <div *ngFor="let image of imagePath, let i = index">
+      <ion-col>
+        <ion-thumbnail marginRightImage *ngIf="i==3">
+          <img src="{{image}}" alt="" width="90px" height="90px">
+        </ion-thumbnail>
+        <ion-thumbnail marginRightImage *ngIf="i==4">
+          <img src="{{image}}" alt="" width="90px" height="90px">
+        </ion-thumbnail>
+      </ion-col>
+    </div>
+  </div>
+  <div flexContainer>
+    <button textMargin ion-button clear icon-left (click)="openActionSheet()" [hidden]="imagePath.length >= 5">
+    <ion-icon name="add-circle"></ion-icon> <p textButton>Add Another Picture</p></button>
+  </div>
+  <div flexContainer paddingAll>
+    <ion-col col-4>
+      <ion-label blueLabel>Item Rental Cost</ion-label>
+    </ion-col>
+    <ion-col col-5>
+      <ion-input type="text" [(ngModel)]="setCost" disabled="true" (click)="openCostModal()"></ion-input>
+    </ion-col>
+  </div>
+  <div flexContainer>
+    <ion-item no-lines itemOverride>
+      <ion-checkbox [(ngModel)]="instantBooking"></ion-checkbox>
+      <ion-label textStyleOverall>Item Can Be Booked Instantly</ion-label>
+    </ion-item>
+  </div>
+  <div flexContainer [hidden]="pickUpAddress.length <= 0">
+      <ion-checkbox  [(ngModel)]="pickUpAddressIdCheck"></ion-checkbox>
+      <ion-input input type="text" [(ngModel)]="pickUpAddressList" disabled="true"></ion-input>
+      <!--<ion-label>{{pickUpAddressList}}</ion-label>-->
+  </div>
+  <div flexContainer [hidden]="pickUpAddress.length > 0">
+      <div class="alert-message alert-message-info">
+        <p textStyleOverall>
+          No Address found. Please Add New Address.
+        </p>
+      </div>
+  </div>
+
+  <div paddingCustom>
+    <button ion-button clear icon-left (click)="openAddAddressModal()">
+    <ion-icon name="add-circle"></ion-icon> <p textButton>Add New Address</p></button>
+  </div>
+  <div paddingBottom>
+    <button ion-button block full buttonStyle (click)="nextPage()">Next</button>
+  </div>
+</ion-content>

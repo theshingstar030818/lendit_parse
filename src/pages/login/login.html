@@ -1,0 +1,40 @@
+<ion-content bgImage>
+    <div paddingLogo>
+          <img src="assets/img/logo_white.png" >
+    </div> 
+    <div paddingSubLogo>
+         Why sell it, when you can lend it
+    </div>   
+    <div paddingEmail>
+      <ion-item itemStyle no-lines>
+        <ion-input type="email" placeholder="Email Address" [(ngModel)]="userName" required></ion-input>
+      </ion-item>
+    </div>
+    <div paddingAll>
+      <ion-item itemStyle no-lines>
+        <ion-input type="password" placeholder="Password" [(ngModel)]="password" required></ion-input>
+      </ion-item>
+    </div>
+    <div paddingAll>
+      <!---Login Using Facebook-->
+      <button ion-button block color="fb" (click)="facebookLogin()"><ion-icon name="logo-facebook">&nbsp;&nbsp;&nbsp;</ion-icon>Sign in with Facebook</button>
+    </div>
+    <div paddingLabel>
+      <ion-item no-lines itemCheckbox block>
+        <ion-checkbox checked="false" [(ngModel)]="rememberUsername" (click)="rememberUser()"></ion-checkbox>        
+        <ion-label labelSize>Remember Username</ion-label>
+      </ion-item>
+    </div>
+    <div paddingLoginButton>
+      <!---Login button-->
+      <button ion-button paddingLoginButtonStyle block outline (click)="goLogin()">Login</button>
+    </div>
+    <div paddingSignUpButton>
+      <!---Login button-->
+          <button ion-button paddingLoginButtonStyle clear (click)="goSignUp()">Sign Up</button>
+    </div>
+    <div paddingForgotButton>
+      <!---Login button-->
+          <button ion-button clear paddingLoginButtonStyle (click)="forgotPassword()">Forgot Password?</button>
+    </div>
+</ion-content>

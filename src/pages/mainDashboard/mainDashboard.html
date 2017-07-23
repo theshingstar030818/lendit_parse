@@ -1,0 +1,92 @@
+<ion-header>
+  <ion-toolbar color ="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <button ion-button mode="ios" icon-only postItemNavButton (click)="goToPage('PostNewItemPage')">
+      <ion-icon name="ios-add-circle-outline"></ion-icon>Post New Item
+    </button>
+    <button color="light" mode="ios" icon-only ion-button right clear (click)="openSearchModal()">
+      <ion-icon name="ios-search"></ion-icon>
+    </button>
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content padding>
+
+  <ion-list no-border>
+    <ion-list-header text-center >
+      <h1 color="primary" >Current Location</h1>
+      <button ion-button mode="ios" clear icon-only postItemNavButton (click)="changeCurrentLocation()">
+        <ion-icon name="ios-pin"></ion-icon>
+        <p>&nbsp;</p>
+        <h2 *ngIf="mapsService.currentPositionInfoObj; else loadingCurrentLocationSpinner;" >{{mapsService?.currentPositionInfoObj?.address?.long_name}}</h2>
+        <ng-template #hasEndDate>
+          <ion-spinner name="bubbles"></ion-spinner>
+        </ng-template>
+      </button>
+    </ion-list-header>
+  </ion-list>
+
+  <ion-item text-center>
+    <h3 color="primary" >Items Available to Rent</h3>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Available Item within</ion-label>
+    <ion-select interface="popover" placeholder="{{search.distanceRangeSelected}} Km" [(ngModel)]="search.distanceRangeSelected">
+        <ion-option *ngFor="let item of search.options.distanceRange" value="{{item}}">{{item}} Km</ion-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Item Category</ion-label>
+    <ion-select interface="popover" [(ngModel)]="search.itemCategorySelected">
+        <ion-option *ngFor="let item of search.options.itemCategories" value="{{item}}">{{item}}</ion-option>
+    </ion-select>
+  </ion-item>
+
+  <div *ngFor="let category of menu?.items; let i = index">
+    <ion-row *ngIf="i%2==0">      
+      <ion-col *ngIf="menu?.items[i]" ><div>
+        <div class="list-items">
+          <div class="item-menu">
+              <img (click)="viewItem(menu?.items[i],i)" src="{{menu?.items[i]?.imageUrl}}"/>
+
+              <div class="overlay">
+                <span class="pull-left" color="light">
+                  {{ menu?.items[i]?.name }} - 
+                </span>
+                <span class="pull-right" color="light">
+                  ${{ menu?.items[i]?.price }} 
+                </span>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </ion-col>
+
+      <ion-col *ngIf="menu?.items[i+1]" ><div>
+        <div class="list-items">
+          <div class="item-menu">
+              <img (click)="viewItem(menu?.items[i+1],i+1)" src="{{menu?.items[i+1]?.imageUrl}}"/>
+
+              <div class="overlay">
+                <span class="pull-left" color="light">
+                  {{ menu?.items[i+1]?.name }} - 
+                </span>
+                <span class="pull-right" color="light">
+                  ${{ menu?.items[i+1]?.price }} 
+                </span>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </ion-col>
+    </ion-row>
+  </div>
+
+</ion-content>

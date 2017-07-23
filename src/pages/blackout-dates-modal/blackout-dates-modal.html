@@ -1,0 +1,96 @@
+<ion-content modalStyling bgColor>
+  <div marginTop>  
+    <ion-icon closeButton name="md-close-circle"  (click)="closeModal()"></ion-icon>
+  </div>
+  <h1 titleStyle >Blackout Dates </h1>
+  <div paddingTop>
+    <ion-label blueHeaders>Blackout Date Range 1</ion-label>
+  </div>
+  <div flexContainer paddingAll>
+    <ion-col>
+      <ion-label textStyle>From</ion-label>
+    </ion-col>
+    <ion-col>
+      <ion-label textStyle>To</ion-label>
+    </ion-col>
+  </div>
+  <div flexContainer paddingAll>
+    <ion-col col-5>
+       <ion-item no-lines (click)="openCalendarFrom1(true)">
+         <ion-datetime inputStyle disabled displayFormat="MM/DD/YYYY" [(ngModel)]="blackoutDateFrom1"></ion-datetime>
+       </ion-item>
+    </ion-col>
+    <ion-col col-1>
+      <ion-icon calenderIconStyle name="md-calendar"></ion-icon>
+    </ion-col>
+    <ion-col col-5>
+      <ion-item no-lines (click)="openCalendarTo1(true)">
+         <ion-datetime inputStyle disabled displayFormat="MM/DD/YYYY" [(ngModel)]="blackoutDateTo1"></ion-datetime>
+       </ion-item>
+    </ion-col>
+    <ion-col col-1>
+      <ion-icon calenderIconStyle name="md-calendar"></ion-icon>
+    </ion-col>
+  </div>
+    <div paddingAll>
+    <ion-label blueHeaders>Blackout Date Range 2</ion-label>
+  </div>
+    <div flexContainer paddingAll>
+    <ion-col>
+      <ion-label textStyle>From</ion-label>
+    </ion-col>
+    <ion-col>
+      <ion-label textStyle>To</ion-label>
+    </ion-col>
+  </div>
+  <div flexContainer paddingAll>
+    <ion-col col-5>
+       <ion-item no-lines (click)="openCalendarFrom2(true)">
+         <ion-datetime inputStyle disabled displayFormat="MM/DD/YYYY" [(ngModel)]="blackoutDateFrom2"></ion-datetime>
+       </ion-item>
+    </ion-col>
+    <ion-col col-1>
+      <ion-icon calenderIconStyle name="md-calendar"></ion-icon>
+    </ion-col>
+    <ion-col col-5>
+      <ion-item no-lines (click)="openCalendarTo2(true)">
+         <ion-datetime inputStyle disabled displayFormat="MM/DD/YYYY" [(ngModel)]="blackoutDateTo2"></ion-datetime>
+       </ion-item>
+    </ion-col>
+    <ion-col col-1>
+      <ion-icon calenderIconStyle name="md-calendar"></ion-icon>
+    </ion-col>
+  </div>
+    <div paddingAll>
+    <ion-label blueHeaders>Blackout Date Range 3</ion-label>
+  </div>
+    <div flexContainer paddingAll>
+    <ion-col>
+      <ion-label textStyle>From</ion-label>
+    </ion-col>
+    <ion-col>
+      <ion-label textStyle>To</ion-label>
+    </ion-col>
+  </div>
+  <div flexContainer paddingAll>
+    <ion-col col-5>
+       <ion-item no-lines (click)="openCalendarFrom3(true)">
+         <ion-datetime inputStyle disabled displayFormat="MM/DD/YYYY" [(ngModel)]="blackoutDateFrom3"></ion-datetime>
+       </ion-item>
+    </ion-col>
+    <ion-col col-1>
+      <ion-icon calenderIconStyle name="md-calendar"></ion-icon>
+    </ion-col>
+    <ion-col col-5>
+      <ion-item no-lines (click)="openCalendarTo3(true)">
+         <ion-datetime inputStyle disabled displayFormat="MM/DD/YYYY" [(ngModel)]="blackoutDateTo3"></ion-datetime>
+       </ion-item>
+    </ion-col>
+    <ion-col col-1>
+      <ion-icon calenderIconStyle name="md-calendar"></ion-icon>
+    </ion-col>
+  </div>
+  <div paddingBottom>
+    <button ion-button block full buttonStyle (click)="closeModal()">Save</button>
+  </div>
+</ion-content>

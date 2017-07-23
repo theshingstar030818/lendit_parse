@@ -1,0 +1,116 @@
+
+<ion-content modalStyling>
+  <div marginTop>
+    <ion-icon closeButton  name="md-close-circle"  (click)="closeModal()"></ion-icon>
+  </div>
+  <h1 titleStyle >Hours of Availability </h1>
+  <ion-content>
+  <div flexContainer paddingTop>
+    <ion-col>
+      <ion-label>Monday</ion-label>
+    </ion-col>
+    <ion-col marginRight>
+      <ion-datetime inputborder displayFormat="h:mm A" pickerFormat="h mm A" [(ngModel)]="monFrom"></ion-datetime>
+    </ion-col>
+    <ion-col col-1>
+      <ion-label>to</ion-label>
+    </ion-col>
+    <ion-col>
+      <ion-datetime inputborder displayFormat="h:mm A" pickerFormat="h mm A" [(ngModel)]="monTo"></ion-datetime>
+    </ion-col>
+  </div>
+  <div flexContainer paddingAll>
+    <ion-col>
+      <ion-label>Tuesday</ion-label>
+    </ion-col>
+    <ion-col marginRight>
+      <ion-datetime inputborder displayFormat="h:mm A" pickerFormat="h mm A" [(ngModel)]="tueFrom"></ion-datetime>
+    </ion-col>
+    <ion-col col-1>
+      <ion-label>to</ion-label>
+    </ion-col>
+    <ion-col>
+      <ion-datetime inputborder displayFormat="h:mm A" pickerFormat="h mm A" [(ngModel)]="tueTo"></ion-datetime>
+    </ion-col>
+  </div>
+  <div flexContainer paddingAll>
+    <ion-col>
+      <ion-label>Wednesday</ion-label>
+    </ion-col>
+    <ion-col marginRight>
+      <ion-datetime inputborder displayFormat="h:mm A" pickerFormat="h mm A" [(ngModel)]="wedFrom"></ion-datetime>
+    </ion-col>
+    <ion-col col-1>
+      <ion-label>to</ion-label>
+    </ion-col>    
+    <ion-col>
+      <ion-datetime inputborder displayFormat="h:mm A" pickerFormat="h mm A" [(ngModel)]="wedTo"></ion-datetime>
+    </ion-col>
+  </div>
+  <div flexContainer paddingAll>
+    <ion-col>
+      <ion-label>Thursday</ion-label>
+    </ion-col>
+    <ion-col marginRight>
+      <ion-datetime inputborder displayFormat="h:mm A" pickerFormat="h mm A" [(ngModel)]="thursFrom"></ion-datetime>
+    </ion-col>
+    <ion-col col-1>
+      <ion-label>to</ion-label>
+    </ion-col>    
+    <ion-col>
+      <ion-datetime inputborder displayFormat="h:mm A" pickerFormat="h mm A" [(ngModel)]="thursTo"></ion-datetime>
+    </ion-col>
+  </div>
+  <div flexContainer paddingAll>
+    <ion-col>
+      <ion-label>Friday</ion-label>
+    </ion-col>
+    <ion-col marginRight>
+      <ion-datetime inputborder displayFormat="h:mm A" pickerFormat="h mm A" [(ngModel)]="friFrom"></ion-datetime>
+    </ion-col>
+    <ion-col col-1>
+      <ion-label>to</ion-label>
+    </ion-col>    
+    <ion-col>
+      <ion-datetime inputborder displayFormat="h:mm A" pickerFormat="h mm A" [(ngModel)]="friTo"></ion-datetime>
+    </ion-col>
+  </div>
+  <div flexContainer paddingAll>
+    <ion-col>
+      <ion-label>Saturday</ion-label>
+    </ion-col>
+    <ion-col marginRight>
+      <ion-datetime inputborder displayFormat="h:mm A" pickerFormat="h mm A" [(ngModel)]="satFrom"></ion-datetime>
+    </ion-col>
+    <ion-col col-1>
+      <ion-label>to</ion-label>
+    </ion-col>    
+    <ion-col>
+      <ion-datetime inputborder displayFormat="h:mm A" pickerFormat="h mm A" [(ngModel)]="satTo"></ion-datetime>
+    </ion-col>
+  </div>
+  <div flexContainer paddingAll>
+    <ion-col>
+      <ion-label>Sunday</ion-label>
+    </ion-col>
+    <ion-col marginRight>
+      <ion-datetime inputborder displayFormat="h:mm A" pickerFormat="h mm A" [(ngModel)]="sunFrom"></ion-datetime>
+    </ion-col>
+    <ion-col col-1>
+      <ion-label>to</ion-label>
+    </ion-col>    
+    <ion-col>
+      <ion-datetime inputborder displayFormat="h:mm A" pickerFormat="h mm A" [(ngModel)]="sunTo"></ion-datetime>
+    </ion-col>
+  </div>
+  <div flexContainer paddingAll>
+    <ion-item no-lines itemOverride>
+      <ion-checkbox checkboxMargin checked="false" [(ngModel)]="sameAsAbove" (click)="updateValues()"></ion-checkbox>
+      <ion-label>Same As Monday Timing</ion-label>
+    </ion-item>  </div>  
+  <div paddingBottom>
+    <button ion-button block full buttonStyle (click)="closeModal()">Save</button>
+  </div>
+  </ion-content>
+
+</ion-content>

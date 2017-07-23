@@ -1,0 +1,76 @@
+<ion-header>
+  <ion-toolbar color ="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title mode="ios">{{pageTitle}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content padding>
+    <ion-list> 
+      <ion-item  no-padding>
+        <div left>Item Name </div>
+        <p right>{{item?.name}}</p>
+      </ion-item>
+
+      <ion-item no-lines no-padding>
+        <div left>Rental Status </div>
+        <p right>Active</p>
+      </ion-item>
+
+      <ion-item no-lines no-padding >
+        <div item-start><p>Rental Date(s)</p></div>
+        <ion-grid item-end>
+          <ion-row>
+            <ion-col no-padding>
+              <div>
+                <ion-item no-lines no-padding>
+                  <ion-label no-lines no-padding>From</ion-label>
+                  <ion-datetime disabled no-opacity no-padding displayFormat="MM/DD/YYYY" [(ngModel)]="selectDateStartDate"></ion-datetime>
+                </ion-item>
+                <div *ngIf="selectDateStartTime">
+                  <br>
+                  <ion-item no-lines no-padding>
+                    <ion-datetime disabled no-opacity no-padding displayFormat="h:mm A" [(ngModel)]="selectDateStartTime"></ion-datetime>
+                  </ion-item>
+                </div>
+              </div>
+            </ion-col>
+            <ion-col no-padding>
+              <div>
+                <ion-item no-lines no-padding>
+                  <ion-label no-lines no-padding>To</ion-label>
+                  <ion-datetime disabled no-opacity no-padding displayFormat="MM/DD/YYYY" [(ngModel)]="selectDateEndDate"></ion-datetime>
+                </ion-item>
+                <div *ngIf="selectDateStartTime">
+                  <br>
+                  <ion-item no-lines no-padding>
+                    <ion-datetime disabled no-opacity no-padding displayFormat="h:mm A" [(ngModel)]="selectDateEndTime"></ion-datetime>
+                  </ion-item>
+                </div>
+              </div>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-item>
+      
+      <ion-item  no-padding>
+        <div left>{{item?.rentByRadioSelection}} </div>
+        <p right>${{item?.rate[item?.rentByRadioSelection]}}</p>
+      </ion-item>
+      
+      <ion-item no-padding >
+        <p left blueHeaders>Total Rental Cost</p> 
+        <p right>${{item?.rate[item?.rentByRadioSelection]}}</p>
+      </ion-item>
+
+      <ion-item right no-lines no-padding>
+        <div no-lines right no-padding>
+          <button right ion-button outline> <ion-icon name="ios-chatbubbles"></ion-icon> &nbsp; Message Sara</button>
+        </div>
+      </ion-item>
+    
+    </ion-list>
+</ion-content>

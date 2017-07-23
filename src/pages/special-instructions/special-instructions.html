@@ -1,0 +1,68 @@
+<ion-header>
+  <ion-navbar color ="primary">
+    <ion-title>Special Instructions</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content bgColor>
+  <div paddingTop>
+    <ion-label blueHeaders>Item availability</ion-label>
+  </div>
+  <div flexContainer paddingButtons>
+    <button textButton ion-button clear icon-left (click)="openDateAvailabilityModal()">
+    <ion-icon name="add-circle"></ion-icon> <p textStyleOverall>Add Available Dates</p></button>
+  </div>
+  <div flexContainer paddingButtons>
+    <button textButton ion-button clear icon-left (click)="openTimeAvailabilityModal()">
+    <ion-icon name="add-circle"></ion-icon> <p textStyleOverall>Add Available Time</p></button>
+  </div>
+  <div flexContainer paddingButtons>
+    <button textButton ion-button clear icon-left (click)="openTimeBlackoutModal()">
+    <ion-icon name="add-circle"></ion-icon> <p textStyleOverall>Add Blackout Dates</p></button>
+  </div>
+  <div paddingAll>
+    <ion-label blueHeaders>Pick-up instructions</ion-label>
+  </div>
+  <div textAreaStyle marginTextArea>
+    <ion-textarea inputStyle [(ngModel)]="pickUpInstructions" required>
+    </ion-textarea>
+  </div>
+  <div flexContainer>
+    <ion-item no-lines itemOverride>
+      <ion-checkbox checkboxMargin checked="false" [(ngModel)]="additionalInfo"></ion-checkbox>
+      <ion-label blueHeaders (click)="openAdditionalInfoModal()">Additional Information Required</ion-label>
+    </ion-item>
+  </div>
+  <div paddingAll>
+    <ion-label blueHeaders>Drop-Off instructions</ion-label>
+  </div>
+  <div textAreaStyle marginTextArea>
+    <ion-textarea inputStyle [(ngModel)]="dropOffInstructions" required>
+    </ion-textarea>
+  </div>
+  <div paddingAll>
+    <ion-label blueHeaders>Select Cancellation Policy</ion-label>
+  </div>
+  <div paddingRadio flexContainer radio-group [(ngModel)]="cancellationPolicy">
+    <ion-col col-4>
+      <ion-item no-lines itemOverride>
+        <ion-label blueHeaders (click)="openStrictPolicyModal()">Strict</ion-label>
+        <ion-radio mode="md" radioMargin item-left value="strict" ></ion-radio>
+      </ion-item>
+    </ion-col>
+    <ion-col col-5>
+      <ion-item no-lines itemOverride>
+        <ion-label blueHeaders (click)="openModeratePolicyModal()">Moderate</ion-label>
+        <ion-radio mode="md" radioMargin item-left value="moderate"></ion-radio>
+      </ion-item>
+    </ion-col>
+    <ion-col col-4>
+      <ion-item no-lines itemOverride>
+        <ion-label blueHeaders (click)="openRelaxedPolicyModal()">Relaxed</ion-label>
+        <ion-radio mode="md" marginLeftside radioMargin item-left value="relaxed"></ion-radio>
+      </ion-item>
+    </ion-col>
+  </div>
+  <div paddingBottom>
+    <button ion-button block full buttonStyle (click)="nextPage()">Next</button>
+  </div>
+</ion-content>

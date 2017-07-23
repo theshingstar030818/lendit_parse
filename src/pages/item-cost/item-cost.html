@@ -1,0 +1,46 @@
+<ion-content modalStyling>
+  <div marginTop>
+    <ion-icon closeButton  name="md-close-circle"  (click)="closeModal()"></ion-icon>
+  </div>
+  <h1 titleStyle >Item Rental Cost </h1>
+  <div paddingTop>
+    <ion-label blueHeaders>Charge By</ion-label>
+  </div>
+  <div flexContainer radio-group [(ngModel)]="chargeBy">
+    <ion-col>
+      <ion-item no-lines itemOverride mode="md">
+        <ion-label mode="md">Hour</ion-label>
+        <ion-radio mode="md" radioMargin item-left value="hour" checked></ion-radio>
+      </ion-item>
+    </ion-col>
+    <ion-col>
+      <ion-item no-lines itemOveraaride mode="md">
+        <ion-label mode="md">Day</ion-label>
+        <ion-radio mode="md" radioMargin item-left value="day"></ion-radio>
+      </ion-item>
+    </ion-col>
+    <!-- <ion-col>
+      <ion-item no-lines itemOverride mode="md">
+        <ion-radio mode="md" radioMargin item-left value="week"><p>Week</p></ion-radio>
+        <ion-label mode="md" >Week</ion-label>
+      </ion-item>
+    </ion-col> -->
+  </div>
+  <div paddingAll>
+    <ion-label blueHeaders>Cost</ion-label>
+  </div>
+  <div flexContainer paddingInput>
+    <ion-col col-4 marginRight [hidden]="chargeBy=='day'">
+      <ion-input type="text" placeholder="Per Hour" [(ngModel)]="hourCost" required></ion-input>
+    </ion-col>
+    <ion-col col-4  marginRight [hidden]="chargeBy=='hour'">
+      <ion-input type="text" placeholder="Per Day" [(ngModel)]="dayCost" required></ion-input>
+    </ion-col>
+    <ion-col col-4 [hidden]="chargeBy=='hour'">
+      <ion-input type="text" placeholder="Per Week" [(ngModel)]="weekCost" required></ion-input>
+    </ion-col>
+  </div>
+  <div paddingBottom>
+    <button ion-button block full buttonStyle (click)="closeModal()">Save</button>
+  </div>
+</ion-content>

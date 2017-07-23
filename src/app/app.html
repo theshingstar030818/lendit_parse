@@ -1,0 +1,38 @@
+<ion-menu side="left" [content]="content" (ionOpen)="menuOpened()" (ionClose)="menuClosed()">
+    <ion-header>
+        <ion-toolbar  color="primary">
+            <ion-title >Menu</ion-title>
+        </ion-toolbar>
+    </ion-header>
+    <ion-content color="primary" menuBg>
+        <ion-list color="primary" no-lines menuBg >
+            <ion-row>
+                <ion-col colPadding>
+                    <ion-item item-avatar menuBg>
+                        <ion-avatar>
+                            <img avatarSize src={{sideMenuImage}}>
+                        </ion-avatar>
+                    </ion-item>
+                </ion-col>
+                <ion-col colPadding>
+                    <ion-input textSize type="text" [(ngModel)]="nameShow" disabled="true"></ion-input>
+                <button mode="md" menuBg (click)="goChangePicture()" menuClose> Change Profile Picture
+                </button>
+                </ion-col>
+            </ion-row>
+            <button mode="md" ion-item menuBg (click)="openProfile()" menuClose>
+                <ion-icon iconSize name="person"></ion-icon>
+                Profile
+            </button>
+            <button mode="md" ion-item menuBg (click)="openSettings()" menuClose>
+                <ion-icon iconSize name="settings"></ion-icon>
+                Settings
+            </button>
+            <button mode="md" ion-item menuBg (click)="doLogout()" menuClose>
+                <ion-icon iconSize name="log-out"></ion-icon>
+                Sign Out
+            </button>
+        </ion-list>
+    </ion-content>
+</ion-menu>
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

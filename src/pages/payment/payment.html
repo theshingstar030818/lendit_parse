@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar color ="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Settings</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <div paddingTop>
+      <ion-label blueHeaders>Payment Info</ion-label>
+    </div>
+    <div paddingAll>
+      <ion-item>
+        <ion-input type="text" placeholder="Bank Name" [(ngModel)]="bankName" required></ion-input>
+      </ion-item>
+    </div>
+    <div paddingAll>
+      <ion-item>
+        <ion-input type="text" placeholder="Account Number" [(ngModel)]="accountNumber" required></ion-input>
+      </ion-item>
+    </div>
+    <div paddingAll>
+      <ion-item>
+        <ion-input type="text" placeholder="Routing Number" [(ngModel)]="routingNumber" required></ion-input>
+      </ion-item>
+    </div>
+    <div paddingBottom>
+      <button ion-button block full buttonStyle (click)="savePaymentInfo()">Save</button>
+    </div>
+</ion-content>

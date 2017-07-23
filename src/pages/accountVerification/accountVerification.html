@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar color ="primary">
+    <ion-title>LENDIT</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content bgColor>
+    <div paddingTop>
+      <ion-label headingStyle>Account Verification</ion-label>
+    </div>
+    <div buttonGap>
+      <ion-label blueHeaders>Enter Verification Code</ion-label>
+    </div>
+    <div paddingAll>
+      <ion-input type="text" [(ngModel)]="verifyCode"></ion-input>
+    </div>
+    <ion-label blueHeaders (click)="resendMessage()">Resend</ion-label>
+    <div buttonGap buttonPadding>
+      <ion-row>
+        <ion-col>
+          <button ion-button outline buttonOutline (click)="goBack()">Back</button>
+        </ion-col>
+        <ion-col>
+          <button ion-button block full buttonStyle (click)="nextPage()">Next</button>
+        </ion-col>
+      </ion-row>
+    </div>
+</ion-content>

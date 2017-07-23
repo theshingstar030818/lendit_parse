@@ -1,0 +1,67 @@
+<!--
+  Generated template for the RentalRequestSummaryPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-toolbar color ="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title mode="ios">{{pageTitle}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content padding>
+    <ion-list>
+      
+      <ion-item >
+        <ion-grid>
+          <ion-row>
+            <ion-col  text-center><p noMargin blueHeaders>Name</p></ion-col>
+            <ion-col  text-center><p noMargin blueHeaders>Date</p></ion-col>
+            <ion-col  text-center><p noMargin blueHeaders>Rental Cost</p></ion-col>
+          </ion-row>
+        </ion-grid>    
+      </ion-item>
+
+      <ion-item >
+        <ion-grid item-start>
+          <ion-row *ngFor="let item of transaction">
+            <ion-col text-center>
+              <div >
+                <p noMargin left>{{item.name}}</p>
+              </div>
+            </ion-col>
+            <ion-col  text-center>
+              <p left noMargin>
+                <ion-datetime no-padding disabled displayFormat="MM/DD/YYYY" [(ngModel)]="item.date"></ion-datetime>
+              </p>
+            </ion-col>
+            <ion-col><p noMargin left>{{item.totalCost}}</p></ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-item>
+
+      <ion-item >
+        <ion-grid item-start>
+          <ion-row >
+            <ion-col text-center>
+              <div >
+                <p noMargin left></p>
+              </div>
+            </ion-col>
+            <ion-col  text-center>
+              <p left noMargin>
+                Total
+              </p>
+            </ion-col>
+            <ion-col  text-center><p blueHeaders noMargin>$ 45.00</p></ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-item>
+        
+    </ion-list>
+</ion-content>

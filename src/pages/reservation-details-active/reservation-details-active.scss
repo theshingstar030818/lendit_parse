@@ -1,0 +1,111 @@
+page-reservation-details-active {
+    ion-title {
+        //position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+    }
+
+    no-padding{
+        padding: 0px !important;
+        padding-left: 0px !important;
+        padding-top: 0px !important;
+        padding-right: 0px !important;
+        padding-bottom: 0px !important
+    }
+
+    no-margin{
+        // margin: 0px, 0px, 0px, 0px
+    }
+
+    no-opacity{
+        opacity: 0
+    }
+    [blueHeaders]{
+        color: #2979ff;
+        text-align: left;
+    }
+
+    [left]{
+        text-align: left;
+        float: left;
+    }
+
+    [center]{
+        text-align: center;
+        float: center;
+    }
+
+    [right]{
+        float:right;
+        text-align: right;
+    }
+
+    ion-title {
+        //position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+    }
+    .toolbar-title{
+        font-size: 16px !important;
+        font-weight: 300 !important;
+        padding: 0px !important;
+    }
+    .segment-button{
+        opacity: 1.0 !important;
+        color: #000000 !important;
+        font-size: 1rem !important;
+        text-transform: initial !important
+    }
+    .segment-button.segment-activated{
+        color:#2979ff !important
+    }
+    [textButton]{
+        // margin-top: -1.5rem !important;
+    }
+    [paddingTop]{
+        padding-top: 5%;
+    }
+    hr{
+        height: 1px !important;
+        background-color: #000000 !important;
+    }
+    [paddingAll]{
+        padding-right: 5%;
+        padding-left: 5%;
+    }
+    [textStyleOverall]{
+        font-weight: 600;
+        font-size: 14px;
+        color: #2979ff !important;
+    }
+    [buttonText]{
+        text-transform: initial !important;
+        text-decoration: underline !important;
+    }
+    [textDecor]{
+        color: #000000 !important;
+        padding-left: 5%;
+    }
+    .button{
+        padding: none !important;
+        margin: none !important;
+        text-transform: initial !important;
+    }
+    [bgColor]{
+        background-color: #f9f9f9;
+    }      
+    [flexContainer] {
+        display:flex;
+        flex-direction:row;
+        font-size: 14px;
+    }
+    [paddingTop]{
+        padding-top: 5%;
+    }   
+}

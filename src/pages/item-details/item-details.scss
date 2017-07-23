@@ -1,0 +1,15 @@
+page-item-details {
+    ul {
+      padding: 0px;
+    
+      &.rating li {
+        padding: 0px 0px !important;
+        background: none;
+        color: #2979ff;
+    
+        ion-icon {
+          font-size: 18px;
+        }
+      }
+    }
+}

@@ -1,0 +1,62 @@
+<ion-header>
+  <ion-toolbar color ="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Settings</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <div paddingTop>
+      <ion-label blueHeaders>User Info</ion-label>
+    </div>
+    <div paddingAll>
+      <ion-item>
+        <ion-input type="text" placeholder="First Name" [(ngModel)]="firstName" required></ion-input>
+      </ion-item>
+    </div>
+    <div paddingAll>
+      <ion-item>
+        <ion-input type="text" placeholder="Last Name" [(ngModel)]="lastName" required></ion-input>
+      </ion-item>
+    </div>
+    <div paddingAll>
+      <ion-item>
+        <ion-input type="text" placeholder="Mobile Phone" [(ngModel)]="phoneNumber" required></ion-input>
+      </ion-item>
+    </div>
+    <div paddingAll>
+      <ion-item>
+        <ion-input input type="email" placeholder="User Email" [(ngModel)]="emailAddress" disabled="true"></ion-input>
+      </ion-item>
+    </div>
+    <div paddingTop>
+      <ion-label blueHeaders>Preffered Contact Method</ion-label>
+    </div>
+    <div paddingAll radio-group [(ngModel)]="contactMethod">
+      <ion-row>
+        <ion-col col-4>
+          <ion-item no-lines mode="md">
+            <ion-label mode="md">Text</ion-label>
+            <ion-radio mode="md" radioMargin item-left value="text" checked="true"></ion-radio>
+          </ion-item>
+        </ion-col>
+        <ion-col col-4 paddingCol>
+          <ion-item no-lines mode="md">
+            <ion-label mode="md">Email</ion-label>
+            <ion-radio mode="md" radioMargin item-left value="email" checked="true"></ion-radio>
+          </ion-item>
+        </ion-col>
+        <ion-col col-4 paddingCol>
+          <ion-item no-lines mode="md">
+            <ion-label mode="md">Call</ion-label>
+            <ion-radio mode="md" radioMargin item-left value="call" checked="true"></ion-radio>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </div>
+    <div paddingBottom>
+      <button ion-button block full buttonStyle (click)="updateUserInformation()">Save</button>
+    </div>
+</ion-content>

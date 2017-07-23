@@ -1,0 +1,63 @@
+<ion-header>
+  <ion-navbar color ="primary">
+    <ion-title>LENDIT</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content bgColor>
+    <ion-row wrap responsive-md padding>
+      <ion-label headingStyle>Sign Up</ion-label>
+    </ion-row> 
+    <form [formGroup]="signupForm">
+      <div buttonGap>
+        <ion-label paddingAll blueHeaders>User Info</ion-label>
+        <ion-row paddingAll>
+          <ion-col gapRight>
+              <ion-input formControlName="firstName" type="text" placeholder="First Name"></ion-input>
+            <div class="no-border" *ngIf="!signupForm.controls.firstName.valid  && (signupForm.controls.firstName.dirty)">
+              <p alertStyle>Please enter a valid name.</p>
+            </div>
+          </ion-col>
+          <ion-col>
+            
+              <ion-input formControlName="lastName" type="text" placeholder="Last Name"></ion-input>
+            <div class="no-border" *ngIf="!signupForm.controls.lastName.valid  && (signupForm.controls.lastName.dirty)">
+              <p alertStyle>Please enter a valid name.</p>
+            </div>
+          </ion-col>
+        </ion-row>
+        <ion-row paddingAll>
+            <ion-input buttonGap formControlName="email" type="email" placeholder="Email Address"></ion-input>
+          <div class="no-border" *ngIf="!signupForm.controls.email.valid  && (signupForm.controls.email.dirty)">
+            <p alertStyle>Please enter a valid email.</p>
+          </div>
+        </ion-row>
+        <ion-row paddingAll>
+            <ion-input buttonGap formControlName="confirmEmail" type="email" placeholder="Confirm Email"></ion-input>
+          <div class="no-border" *ngIf="!signupForm.controls.confirmEmail.valid  && (signupForm.controls.confirmEmail.dirty) || signupForm.controls.confirmEmail.touched && signupForm.hasError('mismachedStrings')">
+            <p alertStyle>Emails do not match</p>
+          </div>
+        </ion-row>
+      </div>
+    </form>
+    <form [formGroup]="passwordForm">        
+      <div buttonGap paddingTop>
+        <ion-label blueHeaders buttonGap>Account Info</ion-label>
+      </div>
+      <div paddingAll>
+          <ion-input buttonGap type="password"  id="pass"  formControlName="password" placeholder="Password"></ion-input>
+        <div class="no-border" *ngIf="!passwordForm.controls.password.valid  && (passwordForm.controls.password.dirty)">
+          <p alertStyle>Password must be atleast 4 characters.</p>
+        </div>
+      </div>
+      <div paddingAll>
+          <ion-input buttonGap formControlName="confirmPassword" type="password" placeholder="Confirm Password"></ion-input>
+        <div class='form-text error' *ngIf="!passwordForm.controls.confirmPassword.valid  && (passwordForm.controls.confirmPassword.dirty) || passwordForm.controls.confirmPassword.touched && passwordForm.hasError('mismachedStrings')">
+          <p alertStyle>Passwords do not match</p>
+        </div>
+      </div>
+    </form>
+    <div paddingAll>
+      <button ion-button block full buttonStyle (click)="nextPage()" [disabled]="!signupForm.valid || !passwordForm.valid">Next</button>
+    </div>
+</ion-content>

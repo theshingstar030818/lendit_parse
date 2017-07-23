@@ -1,0 +1,26 @@
+<!--
+  Generated template for the RentalRequestConfirmationPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-toolbar color ="bar">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Rental Confirmation</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content no-bounce bgimage padding>
+  <ion-slides color="light" pager="true" (ionSlideWillChange)="onSlideChangeStart($event)">
+    <ion-slide>
+      <img [src]="'assets/img/logo_white.png'" class="slide-image" /><br>
+      <button buttonStyle ion-button icon-end large clear (click)="onSlideChangeStart()">
+        <ion-icon color="light" name="md-checkmark"></ion-icon>
+      </button>
+      <p buttonStyle [innerHTML]="'Congratulations!<br>Rental Approved'"></p>
+    </ion-slide>
+  </ion-slides>
+</ion-content>

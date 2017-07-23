@@ -1,0 +1,91 @@
+<ion-header>
+  <ion-toolbar color ="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Lender Dashboard</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content bgColor>
+  <ion-segment mode="md" [(ngModel)]="lender">
+    <ion-segment-button value="rentalItems">
+      Item
+    </ion-segment-button>
+    <ion-segment-button value="rentalRequests">
+      Rental Requests
+    </ion-segment-button>
+    <ion-segment-button value="confirmedRequests">
+      Confirmed
+    </ion-segment-button>
+  </ion-segment>
+
+  <div [ngSwitch]="lender">
+    <ion-list *ngSwitchCase="'rentalItems'">
+      <div paddingTop>
+      <img src="assets/img/testImage.png">
+      </div>
+      <div>
+        <button ion-button clear buttonText>Item Booking Schedule</button>
+      </div>
+      <div textDecor>
+        Price P/D $5.00
+      </div>
+      <div>
+        <button ion-button clear icon-only (click)="goToPostItem()">
+        <ion-icon name="add-circle"></ion-icon>Post New Item</button>
+      </div>
+      <hr>
+    </ion-list>
+    <ion-list *ngSwitchCase="'rentalRequests'">
+      <div flexContainer>
+        <ion-col>
+          <ion-item item-avatar no-lines>
+            <ion-avatar>
+                <img avatarSize src="assets/img/avatarProfilePictureDefault.png">
+            </ion-avatar>
+          </ion-item>
+        </ion-col>
+        <ion-col>
+          <div>Customer Name:</div>
+          <div>Sara Jones</div>
+          <div>4.5  <ion-icon name="ios-star"></ion-icon></div>
+        </ion-col>
+      </div>
+      <hr>
+      <div flexContainer>
+        <ion-col col-6>
+          <button icon-left ion-button block outline>Rental Request Details</button>
+        </ion-col>
+        <ion-col col-6>
+          <button icon-left ion-button block outline>
+          <ion-icon name="ios-chatbubbles"></ion-icon> Message Sara</button>
+        </ion-col>
+      </div>
+    </ion-list>
+    <ion-list *ngSwitchCase="'confirmedRequests'">
+      <div flexContainer paddingAll paddingTop>
+        <button ion-button clear icon-left (click)="goActiveRentals()">
+          <p textStyleOverall>Active Rentals &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+          <ion-icon textStyleOverall name="ios-arrow-forward"></ion-icon>
+        </button>
+      </div>
+      <hr>
+      <div flexContainer paddingAll>
+        <button textButton ion-button clear icon-left (click)="goScheduledRentals()">
+          <p textStyleOverall>Scheduled Rentals &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+          <ion-icon textStyleOverall name="ios-arrow-forward"></ion-icon>
+        </button>
+      </div>
+      <hr>
+      <div flexContainer paddingAll>
+        <button textButton ion-button clear icon-left (click)="goPastRentals()">
+          <p textStyleOverall>Past Rentals &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+          <ion-icon textStyleOverall name="ios-arrow-forward"></ion-icon>
+        </button>
+      </div>
+      <hr>
+    </ion-list>
+  </div>
+
+</ion-content>

@@ -1,0 +1,36 @@
+page-rental-request-confirmation {
+    ion-title {
+        //position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+    }
+    .toolbar-title{
+        font-size: 16px !important;
+        font-weight: 300 !important;
+        padding: 0px !important;
+    }
+        
+    [bgImage]{
+        background-color: #2970e6;
+        background-repeat:no-repeat;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        background-size: cover;
+    }
+
+    [buttonStyle]{
+        border-color: white;
+        color: white;
+        font-size: 1.3em;
+        font-weight: lighter;
+    }
+
+    [buttonPadding]{
+        padding-top: 100%;
+    }
+
+
+}

@@ -1,0 +1,134 @@
+<ion-header>
+  <ion-navbar color ="primary">
+    <ion-title>Confirm Post Details</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content bgColor>
+  <div flexContainer paddingTop>
+    <ion-col>
+      <ion-label blueHeaders>Item Name</ion-label>
+    </ion-col>
+    <ion-col>
+      <ion-label blueHeaders>Category</ion-label>
+    </ion-col>
+  </div>
+  <div flexContainer paddingAll>
+    <ion-col>
+      <ion-input inputStyle type="text" [(ngModel)]="itemName" disabled="true"></ion-input>
+    </ion-col>
+    <ion-col>
+      <ion-input inputStyle type="text" [(ngModel)]="itemCategory" disabled="true"></ion-input>
+    </ion-col>
+  </div>
+  <div paddingAll>
+    <ion-label blueHeaders>Item Description</ion-label>
+  </div>
+  <div marginTextArea>
+    <ion-textarea inputStyle [(ngModel)]="itemDescription" disabled="true">
+    </ion-textarea>
+  </div>
+  <div flexContainer paddingAll>
+    <ion-col col-5>
+      <ion-label blueHeaders>Item Serial Number</ion-label>
+    </ion-col>
+    <ion-col>
+      <ion-input inputStyle type="text" [(ngModel)]="itemSerialNumber" disabled="true"></ion-input>
+    </ion-col>
+  </div>
+  <div flexContainer paddingImage [hidden]="itemPictureUri.length <= 0">
+    <div *ngFor="let image of itemPictureUri, let i = index">
+      <ion-col >
+        <ion-thumbnail marginRightImage *ngIf="i==0">
+          <img src="{{image}}" alt="" width="90px" height="90px">
+        </ion-thumbnail>
+        <ion-thumbnail marginRightImage *ngIf="i==1">
+          <img src="{{image}}" alt="" width="90px" height="90px">
+        </ion-thumbnail>
+        <ion-thumbnail *ngIf="i==2">
+          <img src="{{image}}" alt="" width="90px" height="90px">
+        </ion-thumbnail>
+      </ion-col>
+    </div>
+  </div>
+  <div flexContainer paddingImage [hidden]="itemPictureUri.length <= 2">
+    <div *ngFor="let image of itemPictureUri, let i = index">
+      <ion-col>
+        <ion-thumbnail marginRightImage *ngIf="i==3">
+          <img src="{{image}}" alt="" width="90px" height="90px">
+        </ion-thumbnail>
+        <ion-thumbnail marginRightImage *ngIf="i==4">
+          <img src="{{image}}" alt="" width="90px" height="90px">
+        </ion-thumbnail>
+      </ion-col>
+    </div>
+  </div>
+  <div flexContainer paddingAll [hidden]="itemPictureUri.length > 0">
+    <div class="alert-message alert-message-info">
+      <p>
+        No Images found for this Item.
+      </p>
+    </div>
+  </div>
+  <div flexContainer paddingAll>
+    <ion-col col-5>
+      <ion-label blueHeaders>Rental Date Range</ion-label>
+    </ion-col>
+    <ion-col col-3>
+      <ion-input textAlignRight inputStyle type="text" [(ngModel)]="availableDateFrom" disabled="true"></ion-input>
+    </ion-col>
+    <ion-col col-1>
+      <ion-label grayText textAlignRight>To</ion-label>
+    </ion-col>
+    <ion-col col-3>
+      <ion-input textAlignRight inputStyle type="text" [(ngModel)]="availableDateTo" disabled="true"></ion-input>
+    </ion-col>
+  </div>
+  <div flexContainer paddingAll>
+    <ion-col col-4>
+      <ion-label blueHeaders>Item Rental Cost</ion-label>
+    </ion-col>
+    <ion-col col-2>
+      <ion-input textAlignCenter inputStyle type="text" [(ngModel)]="itemCostHour" disabled="true"></ion-input>
+    </ion-col>
+    <ion-col col-3>
+      <ion-input textAlignCenter inputStyle type="text" [(ngModel)]="itemCost" disabled="true"></ion-input>
+    </ion-col>
+    <ion-col col-3>
+      <ion-input textAlignRight inputStyle type="text" [(ngModel)]="itemCostWeek" disabled="true"></ion-input>
+    </ion-col>
+  </div>
+  <div flexContainer paddingAll>
+    <ion-col>
+      <ion-label blueHeaders>Item Location</ion-label>
+    </ion-col>
+    <ion-col>
+      <ion-input textAlignRight inputStyle type="text" [(ngModel)]="itemLocation" disabled="true"></ion-input>
+    </ion-col>
+  </div>
+  <div flexContainer paddingAll>
+    <ion-col>
+      <ion-label blueHeaders>Cancellation Policy</ion-label>
+    </ion-col>
+    <ion-col>
+      <ion-input textAlignRight type="text" [(ngModel)]="cancellationPolicy" disabled="true"></ion-input>
+    </ion-col>
+  </div>
+  <div paddingAll>
+    <ion-label blueHeaders>Pick-Up Instructions</ion-label>
+  </div>
+  <div marginTextArea>
+    <ion-textarea inputStyle [(ngModel)]="pickUpInstructions" disabled="true">
+    </ion-textarea>
+  </div>
+  <div paddingAll>
+    <ion-label blueHeaders>Drop-Off Instructions</ion-label>
+  </div>
+  <div marginTextArea>
+    <ion-textarea inputStyle [(ngModel)]="dropOffInstructions" disabled="true">
+    </ion-textarea>
+  </div>
+
+  <div paddingBottom>
+    <button ion-button block full buttonStyle (click)="postItem()">Post Item</button>
+  </div>
+</ion-content>
