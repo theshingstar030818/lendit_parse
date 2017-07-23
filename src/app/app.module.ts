@@ -20,6 +20,10 @@ import { IonicPageModule } from 'ionic-angular';
 import { SearchProvider } from '../providers/search/search';
 import { GeoLocationServicesProvider } from '../providers/geo-location-services/geo-location-services';
 import { GeoDataManagerProvider } from '../providers/geo-data-manager/geo-data-manager';
+import { ParseBackendProvider } from '../providers/parse-backend/parse-backend';
+import { LocalDbProvider } from '../providers/local-db/local-db';
+import { ErrorHandlerProvider } from '../providers/error-handler/error-handler';
+import { ConnectivityProvider } from '../providers/connectivity/connectivity';
 
 let config = { swipeBackEnabled:false };
 
@@ -54,6 +58,11 @@ let config = { swipeBackEnabled:false };
     SearchProvider,
     GeoLocationServicesProvider,
     GeoDataManagerProvider,
+    ParseBackendProvider,
+    LocalDbProvider,
+    ErrorHandlerProvider,
+    ConnectivityProvider,
+    ConnectivityProvider,
   ]
 })
 export class AppModule {}
